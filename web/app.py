@@ -1,5 +1,10 @@
 import sys
 import os
+
+# Monkey patch eventlet (Must be first)
+import eventlet
+eventlet.monkey_patch()
+
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from flask import Flask, render_template, request, jsonify, session, send_from_directory, redirect, url_for, send_file
